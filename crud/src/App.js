@@ -10,6 +10,7 @@ import React, { useState } from "react";
 
 function App() {
   const [todolist, setTodolist] = useState([]);
+<<<<<<< HEAD
   const [currenttodo,setCurrenttodo]=useState(null)
   console.log(currenttodo)
   return (
@@ -27,6 +28,30 @@ function App() {
         </Col>
         </Row>
         </Container>
+=======
+  const [currentTodo, setCurrentTodo] = useState(null);
+  const [isEdit, setIsEdit] = useState(false);
+
+  return (
+    <>
+      <div className="App">
+        <Todos
+          todoList={todolist}
+          setTodoList={setTodolist}
+          setCurentTodo={setCurrentTodo}
+          setIsEdit={setIsEdit}
+        />
+
+        <TodoCreateForm
+          todoList={todolist}
+          setTodoList={setTodolist}
+          currentTodo={currentTodo}
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          setCurrentTodo={setCurrentTodo}
+        />
+        {/* <p>{todos.title}</p>  
+>>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
 
     </>
   );

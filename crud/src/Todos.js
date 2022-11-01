@@ -1,6 +1,5 @@
 import "./App.css";
 import axios from "axios";
-<<<<<<< HEAD
 import React, { useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 
@@ -8,11 +7,6 @@ const api_url = "http://localhost:8085/todos/";
 
 function Todos({ todoList, setTodoList, currentTodo, setCurrentTodo }) {
   console.log(currentTodo);
-=======
-const api_url = "http://localhost:8085/todos/";
-
-function Todos({ todoList, setTodoList, setCurentTodo, setIsEdit }) {
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
   const fetch_todos = async () => {
     try {
       const { data } = await axios.get(api_url);
@@ -22,14 +16,14 @@ function Todos({ todoList, setTodoList, setCurentTodo, setIsEdit }) {
     }
   };
 
-  const delete_todos = async todo_id => {
+  const delete_todos = async (todo_id) => {
     ///console.log(todo_id);
     try {
       const del_todos = await axios.delete(`${api_url}${todo_id}`);
 
       console.log(del_todos);
 
-      const newtodos = todoList.filter(todo => {
+      const newtodos = todoList.filter((todo) => {
         //console.log(todo)
         return todo._id !== todo_id;
       });
@@ -61,7 +55,6 @@ function Todos({ todoList, setTodoList, setCurentTodo, setIsEdit }) {
   //replace todo_title,desc with updated todo title,desc in return
   //else ignore
 
-<<<<<<< HEAD
   // const update_todo = async (todo_id, todo_title, todo_description) => {
   //   try {
   //     const updated_todo = await axios.put(`${api_url}${todo_id}`, {
@@ -125,28 +118,6 @@ function Todos({ todoList, setTodoList, setCurentTodo, setIsEdit }) {
           <Card.Body><Card.Text>{todo.description}</Card.Text>
           </Card.Body>
         </Card> 
-=======
-  // first - when i click on edit of a todo it should be sent to  input filed
-  // then the submit button should changed to be edit
-  // and the todo should be updated on the basis of todo ids
-  const handle_edit = todo => {
-    setCurentTodo(todo);
-    // setIsEdit(true);
-  };
-
-  return (
-    <>
-      <div className="App">
-        <button onClick={fetch_todos}> show todos </button>
-        <ul>
-          {todoList.map(todo => (
-            <li key={todo._id}>
-              <h3> {todo.title}</h3>
-              <button onClick={() => delete_todos(todo._id)}> DELETE </button>
-              <button onClick={() => handle_edit(todo)}>EDIT</button>
-              <h5> {todo.description}</h5>
-            </li>
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
           ))}
 
     </>

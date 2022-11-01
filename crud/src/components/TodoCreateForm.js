@@ -5,7 +5,6 @@ import Form from "react-bootstrap/Form";
 
 const api_url = "http://localhost:8085/todos/";
 
-<<<<<<< HEAD
 function TodoCreateForm({ todoList,setTodoList,currentTodo,setCurrentTodo}) {
 
   const [form,setForm]=useState({
@@ -15,23 +14,6 @@ function TodoCreateForm({ todoList,setTodoList,currentTodo,setCurrentTodo}) {
   })
 
   const handleSubmit = (e) => {
-=======
-function TodoCreateForm({
-  todoList,
-  setTodoList,
-  currentTodo,
-  setCurrentTodo,
-  // isEdit,
-  // setIsEdit,
-}) {
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    _id: "",
-  });
-
-  const handleSubmit = e => {
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
     e.preventDefault();
     if(!currentTodo){
       const title = e.target.title.value;
@@ -52,30 +34,6 @@ function TodoCreateForm({
     });
   };
 
-<<<<<<< HEAD
-=======
-    if (!currentTodo) {
-      const title = e.target.title.value;
-      const description = e.target.description.value;
-      console.log(title, description);
-      add_todo(title, description);
-      e.target.reset();
-    } else {
-      console.log(form, currentTodo);
-      // do edit things
-      update_todo(form._id, form.title, form.description);
-
-      setCurrentTodo(null);
-    }
-
-    setForm({
-      title: "",
-      description: "",
-      _id: "",
-    });
-  };
-
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
   const add_todo = async (title, description) => {
     try {
       const { data } = await axios.post(api_url, {
@@ -99,10 +57,6 @@ function TodoCreateForm({
       console.error(err);
     }
   };
-<<<<<<< HEAD
-=======
-
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
   const update_todo = async (todo_id, todo_title, todo_description) => {
     try {
       const updated_todo = await axios.put(`${api_url}${todo_id}`, {
@@ -130,7 +84,6 @@ function TodoCreateForm({
     }
   };
 
-<<<<<<< HEAD
 useEffect(() => {
   console.log(currentTodo,'cur')
   if(currentTodo){
@@ -151,47 +104,17 @@ setForm(data)
 
 
 }
-=======
-  useEffect(() => {
-    console.log(currentTodo, "CURRENT");
-
-    if (currentTodo) setForm(currentTodo);
-  }, [currentTodo]);
-
-  const handleChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    // const data = { ...form };
-    // data[name] = value;
-
-    // const data = { ...form, [name]: value };
-
-    // setForm(data);
-
-    setForm({ ...form, [name]: value });
-  };
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
 
   return (
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicTitle">
-<<<<<<< HEAD
           <Form.Label>Todo Title:</Form.Label>
           <Form.Control
             type="text"
             name="title"
             value={form.title}
             placeholder="what are you up to....."
-=======
-          <Form.Label>Todo Title</Form.Label>
-          <Form.Control
-            type="text"
-            value={form.title}
-            name="title"
-            placeholder="Enter Title"
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
             onChange={handleChange}
           />
           <Form.Text className="text-muted"></Form.Text>
@@ -202,11 +125,7 @@ setForm(data)
           <Form.Control
             type="text"
             name="description"
-<<<<<<< HEAD
             placeholder="Enter your stuff......"
-=======
-            placeholder="Description"
->>>>>>> fc3c7fddf2b6226b1b524de6a74d414b77baa3df
             value={form.description}
             onChange={handleChange}
           />
